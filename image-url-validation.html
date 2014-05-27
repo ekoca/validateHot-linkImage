@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title> IMAGE VALIDATION </title>
+		<script type='text/javascript' src='http://code.jquery.com/jquery-1.5.2.js'></script>
+		<style type='text/css'>
+		</style>
+		<script type='text/javascript'>
+			//<![CDATA[ 
+				$(window).load(function(){
+					function checkImage(src) {
+					    var img = new Image();
+					    img.onload = function () {
+					        // code to set the src on success
+					        $('body').css('background', 'url(' + src + ') no-repeat scroll center top #FFFFFF');
+					    };
+					    img.onerror = function () {
+					        // doesn't exist or error loading
+					        alert("Image doesn't exist or error loading");
+					    };
+					
+					    img.src = src; // fires off loading of image
+					}
+					
+					checkImage('https://scontent-b.xx.fbcdn.net/hphotos-ash3/t31.0-8/882607_10151459699708472_554638488_o.jpg');
+					// uncomment to test error function
+					//checkImage('http://www.emrekoca.com/images/no_exist.jpeg');
+				});
+			//]]>  
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
